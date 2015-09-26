@@ -2,10 +2,11 @@ class Person
 
   attr_accessor :name, :x, :y ,:arms #accesador y mutador para nombre y cordenadas de la persona
 
-  def initialize(name = nil, posx = nil, posy = nil)  #iniciacion nula en caso de que no alla dato
+  def initialize(name = nil, posx = nil, posy = nil , arms = nil)  #iniciacion nula en caso de que no alla dato
     @name = name || 'John Doe'
     @x = posx || Random.rand(10)
     @y = posy || Random.rand(10)
+    @arms = arms
   end
 
   def run!                       #funcion que permite correr a llas personas
@@ -41,4 +42,18 @@ class Person
       end
     end
   end
+
+  def addArms(armas)
+    armas.each do |a|      
+      if a.x == @x && a.y == @y 
+        puts "------------------------------"
+        puts  "has cogido la "+ a.name.to_s  + "  8==3--- "
+        puts "-----------------------------"
+        arms = 1 
+        cogida = armas.delete(a) 
+      end
+    end
+  end
+
+  def disparar(armas , zombies)
 end

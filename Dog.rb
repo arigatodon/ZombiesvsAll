@@ -26,9 +26,9 @@ end
 class Gun
   attr_accessor :name, :x, :y
   def initialize(name = nil, posx = nil, posy = nil)  #iniciacion nula en caso de que no alla dato
-    @name = name || 
-    @x = posx || Random.rand(10)
-    @y = posy || Random.rand(10)
+    @name = name  
+    @x = posx 
+    @y = posy 
   end
 
 
