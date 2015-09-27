@@ -1,5 +1,5 @@
-require_relative 'Dog.rb'
 require_relative 'Person.rb'
+require_relative 'Dog.rb'
 require_relative 'Zombie.rb'
 
 
@@ -30,16 +30,18 @@ puts perros.count
 puts armas.count
 
 
-while personas.count > 0
+while personas.count > 0 
+ 
   zombies.each(&:walk)
   personas.each(&:run!)
   perros.each(&:move)
   personas.each do |p|
     p.addArms armas
+    p.useArms zombies
     p.danger? zombies
     if p.zombified? zombies
       muerto = personas.delete(p)
-      zombies << Zombie.new(" #{muerto.name} ZZZ 666")
+      zombies << Zombie.new("Zombie #{muerto.name}")
     end
     perros.each do |z|
       zombies = z.mata zombies
@@ -54,10 +56,10 @@ end
 puts "-----------------------------------------------"
 puts "la cantidad de sobrevivientes #{personas.count}"
 puts "-----------------------------------------------"
-puts "-----------------------------------------------"
 puts "los zombies que aun viven son #{zombies.count}"
 puts "-----------------------------------------------"
 puts "todos los perros se van al cielo #{perros.count}"
 puts "-----------------------------------------------"
 puts "armas  que quedaron tiradas #{armas.count}"
+puts "-----------------------------------------------"
 puts "-----------------------------------------------"
