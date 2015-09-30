@@ -30,15 +30,15 @@ puts perros.count
 puts armas.count
 
 
-while personas.count > 0 
+while personas.count > 0 && zombies.count > 0
  
   zombies.each(&:walk)
   personas.each(&:run!)
   perros.each(&:move)
   personas.each do |p|
     p.addArms armas
-    p.useArms zombies
     p.danger? zombies
+    p.useArms zombies
     if p.zombified? zombies
       muerto = personas.delete(p)
       zombies << Zombie.new("Zombie #{muerto.name}")

@@ -50,8 +50,8 @@ class Person
         puts " La #{@name}"
         puts  " ha recogido la #{a.name} "
         puts "-----------------------------"
-         @arms = 1 
-       tipo = armas.delete(a) 
+        @arms = 1 
+        tipo = armas.delete(a) 
       end
     end
   end
@@ -60,7 +60,7 @@ class Person
       zombies.each do |z|
         if  @arms == 1 && z.x.between?((@x - 2), (@x + 2)) && z.y.between?((@y - 2), (@y + 2)) 
           puts "--------------------------"
-          puts "te has cargado a #{z.name}"
+          puts "#{@name} se a cargado a #{z.name}"
           puts "--------------------------"
           zombies.delete(z)
         end
